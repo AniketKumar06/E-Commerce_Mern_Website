@@ -1,0 +1,7 @@
+.hello{
+    display:flex;
+    color:red;
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+}

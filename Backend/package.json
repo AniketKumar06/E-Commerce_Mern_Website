@@ -1,0 +1,19 @@
+{
+  "name": "ecommercebackend",
+  "version": "1.0.0",
+  "description": "\"Ecommerce Website\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AniketKumar06/E-Commerce_Mern_Website.git"
+  },
+  "author": "Aniket Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AniketKumar06/E-Commerce_Mern_Website/issues"
+  },
+  "homepage": "https://github.com/AniketKumar06/E-Commerce_Mern_Website#readme"
+}

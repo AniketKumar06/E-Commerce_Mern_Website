@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AniketKumar06/E-Commerce_Mern_Website/issues"
   },
-  "homepage": "https://github.com/AniketKumar06/E-Commerce_Mern_Website#readme"
+  "homepage": "https://github.com/AniketKumar06/E-Commerce_Mern_Website#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }

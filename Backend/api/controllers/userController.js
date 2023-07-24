@@ -7,7 +7,7 @@ export const userRegisterController = async (req, res, next) => {
 
 
         /** Validation All Entites */
-        if (!firstname || !lastname || !email || !phone || !address || !password || !conformpassword) {
+        if (!firstname && !lastname && !email && !phone && !address && !password && !conformpassword) {
             return result.status(403).write({ success: false, message: "All Data are required" })
         }
     } catch (error) {

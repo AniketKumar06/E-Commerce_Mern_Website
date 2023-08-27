@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 // app.use(express.json({
 //     extended: false
 // }));
-
+console.log("hello world!!")
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

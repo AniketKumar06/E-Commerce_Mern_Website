@@ -6,7 +6,7 @@ import connectDB from './env/db.js';
 import userRouter from './api/routes/userRoute.js';
 
 /**Creating app */
-const app = express.Router();
+const app = express();
 
 /**Using Morgan for Method View */
 app.use(morgan('dev'));

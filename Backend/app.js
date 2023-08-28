@@ -2,7 +2,6 @@ import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import connectDB from './env/db.js';
-
 import userRouter from './api/routes/userRoute.js';
 
 /**Creating app */
@@ -12,11 +11,7 @@ const app = express();
 app.use(morgan('dev'));
 
 /**Creating  middleware */
-// app.use(express.json({}));
-// app.use(express.json({
-//     extended: false
-// }));
-console.log("hello world!!")
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -28,6 +23,7 @@ connectDB();
 /** creating api using middleware*/
 
 app.use('/api/v1/auth', userRouter);
+
 
 /**
  * Error Handling While Enter Wrong URL 

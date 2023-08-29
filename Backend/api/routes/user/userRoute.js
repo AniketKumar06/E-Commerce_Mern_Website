@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { Router } from 'express';
-import { userRegisterController } from '../controllers/userController.js';
+import { userRegisterController } from '../../controllers/user/userController.js';
 
 
 // Creating routes

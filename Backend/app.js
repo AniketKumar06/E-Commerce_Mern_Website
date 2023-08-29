@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import connectDB from './env/db.js';
-import userRouter from './api/routes/userRoute.js';
+import userRouter from './api/routes/user/userRoute.js';
 
 /**Creating app */
 const app = express();

@@ -22,7 +22,7 @@ connectDB();
 
 /** creating api using middleware*/
 
-app.use('/api/v1/auth', userRouter);
+app.use('/api/v1/auth/user', userRouter);
 
 
 /**

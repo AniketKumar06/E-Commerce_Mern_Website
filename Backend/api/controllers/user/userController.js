@@ -2,10 +2,12 @@ import comparePassword from '../../helpers/encryptDecrypt/passwordDecrypt.js';
 import hashpassword from '../../helpers/encryptDecrypt/passwordEncrypt.js';
 import userModel from '../../models/user/userModel.js';
 
+/**New user register */
 
 export const userRegisterController = async (req, res, next) => {
-    const { firstname, lastname, email, phone, address  ,password, conformpassword  } = req.body;
+    
     try {
+        const { firstname, lastname, email, phone, address  ,password, conformpassword  } = req.body;
         // test purpose 
 
         // console.log(firstname," ",lastname," ",email," ",address," ",phone," ",password," ",conformpassword);
@@ -72,6 +74,47 @@ export const userRegisterController = async (req, res, next) => {
             sucess: false,
             msg: 'Internal Server Error'
         })
+        next(error);
     }
 };
 
+
+
+/** User login */
+
+export const userLoginControllor  = async(req,res,next)=>{
+    try{
+        const { email , phone , password } = req.body;
+
+        //test purpose 
+        /** 
+        res.status(200).json({
+            success:true,
+            email : email,
+            password: password
+        })
+       
+        */
+
+        const userExist = await userModel.findOne({
+            email : email.toLowerCase(),
+        });
+
+        if(!userExist){
+            return  res.status(404).json({
+                success:false,
+                msg:"No User found!!"
+            });
+        }
+
+    }
+    catch (error) {
+        console.log("Error in User Register Controller", error);
+        return res.status(500).json({
+            sucess: false,
+            msg: 'Internal Server Error'
+        })
+        next(error);
+    }
+
+}

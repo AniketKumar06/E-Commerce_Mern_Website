@@ -1,16 +1,24 @@
 import mongoose from 'mongoose';
 import { Router } from 'express';
-import { userRegisterController } from '../../controllers/user/userController.js';
+import { userLoginControllor, userRegisterController } from '../../controllers/user/userController.js';
 
 
 // Creating routes
 
 const router = Router();
 
-/**Action :REGISTER
+/**
+ * Action :REGISTER
  * METHOD: POST
  */
 
-router.post('/register', userRegisterController)
+router.post('/register', userRegisterController);
+
+/**
+ * Action :LOGIN
+ * Method: POST
+ */
+
+router.post('/login', userLoginControllor);
 
 export default router;

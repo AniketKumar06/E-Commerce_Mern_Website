@@ -1,9 +1,10 @@
-import { hash, compare } from 'bcryptjs';
+import bycrpt from 'bcryptjs';
+
 
 const hashpassword = async (password) => {
     try {
         const saltRound = 10;
-        const hashedpassword = await hash(password, saltRound);
+        const hashedpassword = await bycrpt.hash(password, saltRound);
         return hashedpassword;
     } catch (error) {
         console.log("Error to Encrypt Password", error);
@@ -11,8 +12,8 @@ const hashpassword = async (password) => {
 };
 
 const comparepassword = async (password, hashedpassword) => {
-    return compare(password, hashedpassword);
+    return bycrpt.compare(password, hashedpassword);
 };
 
 
-export default { hashpassword, comparepassword };
+export default {hashpassword,comparepassword};

@@ -7,8 +7,8 @@ export const userRegisterController = async (req, res, next) => {
   
     try {
         /** Validation All Entites */
-        if (!firstname) {
-            return res.status(403).write({ success: false, message: "Firstname is required" })
+        if (!firstname ) {
+            return res.status(500).write({ success: false, message: "Firstname is required" })
         }
         if (!lastname) {
             return res.status(403).write({ success: false, message: "Lastname is required" })

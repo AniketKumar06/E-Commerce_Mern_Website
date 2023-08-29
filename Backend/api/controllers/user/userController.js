@@ -79,7 +79,6 @@ export const userRegisterController = async (req, res, next) => {
 };
 
 
-
 /** User login */
 
 export const userLoginControllor  = async(req,res,next)=>{

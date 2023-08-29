@@ -79,7 +79,6 @@ export const userRegisterController = async (req, res, next) => {
 };
 
 
-
 /** User login */
 
 export const userLoginControllor  = async(req,res,next)=>{
@@ -106,6 +105,9 @@ export const userLoginControllor  = async(req,res,next)=>{
                 msg:"No User found!!"
             });
         }
+
+        const decryptPass = await comparePassword(password,userExist.password);
+        console.log(decryptPass);
 
     }
     catch (error) {

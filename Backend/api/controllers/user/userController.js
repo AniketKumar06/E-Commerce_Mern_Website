@@ -107,6 +107,9 @@ export const userLoginControllor  = async(req,res,next)=>{
             });
         }
 
+        const decryptPass = await comparePassword(password,userExist.password);
+        console.log(decryptPass);
+
     }
     catch (error) {
         console.log("Error in User Register Controller", error);

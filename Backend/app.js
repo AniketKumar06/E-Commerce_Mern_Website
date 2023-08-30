@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import connectDB from './env/db.js';
 import userRouter from './api/routes/user/userRoute.js';
+import adminRouter from './api/routes/admin/adminRoute.js';
 
 /**Creating app */
 const app = express();
@@ -22,7 +23,8 @@ connectDB();
 
 /** creating api using middleware*/
 
-app.use('/api/v1/auth/user', userRouter);
+app.use('/api/v1/auth/user' , userRouter);
+app.use('/api/v1/auth/admin', adminRouter)
 
 
 /**

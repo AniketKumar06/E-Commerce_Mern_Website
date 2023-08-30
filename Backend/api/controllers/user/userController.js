@@ -111,7 +111,7 @@ export const userLoginControllor  = async(req,res,next)=>{
 
     }
     catch (error) {
-        console.log("Error in User Register Controller", error);
+        console.log("Error in User Login Controller", error);
         return res.status(500).json({
             sucess: false,
             msg: 'Internal Server Error'

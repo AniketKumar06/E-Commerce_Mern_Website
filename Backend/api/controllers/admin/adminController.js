@@ -1,5 +1,9 @@
+import comparePassword from "../../helpers/encryptDecrypt/passwordDecrypt.js";
 import hashpassword from "../../helpers/encryptDecrypt/passwordEncrypt.js";
 import adminModel from "../../models/admin/adminModel.js";
+
+
+/**Admin Register */
 
 export const adminRegisterController = async(req,res,next)=>{
     const {firstname, lastname, email, phone, password,conformpassword} =req.body;
@@ -58,6 +62,55 @@ export const adminRegisterController = async(req,res,next)=>{
 
 
    }catch(error){
+    console.log("Error in User Register Controller", error);
+    return res.status(500).json({
+        sucess: false,
+        msg: 'Internal Server Error'
+    })
+    next(error);
+
 
    }
 };
+
+/** Admin login */
+
+export const adminLoginControllor  = async(req,res,next)=>{
+    try{
+        const { email , password } = req.body;
+
+        //test purpose 
+        /** 
+        res.status(200).json({
+            success:true,
+            email : email,
+            password: password
+        })
+       
+        */
+
+        const adminExist = await adminModel.findOne({
+            email : email.toLowerCase(),
+        });
+
+        if(!adminExist){
+            return  res.status(404).json({
+                success:false,
+                msg:"No User found!!"
+            });
+        }
+
+        const decryptPass = await comparePassword(password,adminExist.password);
+        console.log(decryptPass);
+
+    }
+    catch (error) {
+        console.log("Error in Admin Login Controller", error);
+        return res.status(500).json({
+            sucess: false,
+            msg: 'Internal Server Error'
+        })
+        next(error);
+    }
+
+}

@@ -103,6 +103,18 @@ export const adminLoginControllor  = async(req,res,next)=>{
         const decryptPass = await comparePassword(password,adminExist.password);
         console.log(decryptPass);
 
+        if(decryptPass === false){
+            return res.status(409).json({
+                success: false,
+                msg: "Incorrect Password!"
+            })
+        }else{
+            return res.status(200).json({
+                success:true,
+                msg: "Login Successfully!!"
+            })
+        }
+
     }
     catch (error) {
         console.log("Error in Admin Login Controller", error);
